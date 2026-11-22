@@ -31,6 +31,12 @@ jobs:
           echo '5478fa64e8ef5eac228d8470d3992080155ad48eb06a57c63daaffbe3e816dae  gameplay.zip' | sha256sum -c -
           unzip -oq gameplay.zip -d site
           test -f site/assets/cinematics/entrance-loop-mobile.mp4
+          curl --fail --location --retry 3 -o awards.zip https://github.com/kcyboy123-png/ratio-islands/releases/download/v1.0.4/ratio-islands-v104.zip
+          echo 'aac25f80eb2a42314d1d5b7a66766220c8b0f2d16aade00dd4469aae96534fe7  awards.zip' | sha256sum -c -
+          unzip -oq awards.zip -d site
+          test -s site/assets/cinematics/voyage-ending-mobile.mp4
+          test -s site/assets/cinematics/voyage-ending.mp4
+          test -s site/assets/tiers/emerald.svg
           test -f site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
