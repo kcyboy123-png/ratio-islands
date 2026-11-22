@@ -23,6 +23,10 @@ jobs:
           curl --fail --location --retry 3 -o site.zip https://github.com/kcyboy123-png/ratio-islands/releases/download/v1.0.1/ratio-islands-site-v101.zip
           echo '6aa0f9eef9ecd80a9227dce3dc982c2a998131b0e24745647c43bf09d8d0a61d  site.zip' | sha256sum -c -
           unzip -q site.zip -d site
+          curl --fail --location --retry 3 -o entrance.zip https://github.com/kcyboy123-png/ratio-islands/releases/download/v1.0.2/ratio-islands-entrance-v102.zip
+          echo '83a439685656659e93f458c30a3072d41e442894551a1d107d559fc834b588d6  entrance.zip' | sha256sum -c -
+          unzip -oq entrance.zip -d site
+          test -f site/assets/cinematics/entrance-harbor.webp
           test -f site/index.html
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
